@@ -4,20 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de Unidades</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Conversor de Unidades</h1>
-    <h2>Categoria </h2>
-    <Select>
-        <option value="Longitud">Longitud</option>
-        <option value="Peso">Peso</option>
-        <option value="Temperatura">Temperatura</option>
-    </Select>
-    <h2>Cantidad</h2>
-    <input type="number" placeholder="Selecciona una Cantidad">
-    <select>
-        <option>Selecciona una categoria primero</option>
-    </select>
+    <div class="contenedor">
+        <h1> CONVERSOR DE UNIDADES</h1>
+
+        <select>
+            <option>Selecciona una categoria</option>
+        </select>
+
+        <input type="number" placeholder="ingrese la cantidad">
+       
+        
+        <div class="unidades">
+            <p>Pasar de: </p>
+
+            <select>
+                <option>Seleccione una unidad</option>
+            </select>
+        
+            <p>a</p>
+        
+            <select>
+                <option>Seleccione una unidad</option>
+            </select>
     
+            
+        </div>    
+        <button>Convertir</button>
+    </div>
+   
 </body>
 </html>
