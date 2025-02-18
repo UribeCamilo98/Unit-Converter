@@ -10,33 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="contenedor">
+    <div class="contenedor fuente">
         <h1> CONVERSOR DE UNIDADES</h1>
 
-        <select>
+        <select id="categoria" class="fuente">
             <option>Selecciona una categoria</option>
+            <option value="longitud">Longitud</option>
+            <option value="peso">Peso</option>
+            <option value="temperatura">Temperatura</option>
         </select>
 
-        <input type="number" placeholder="ingrese la cantidad">
+        <input type="number" class="fuente" placeholder="ingrese la cantidad">
        
         
         <div class="unidades">
             <p>Pasar de: </p>
-
-            <select>
+            <select id="unidad1"class="fuente">
                 <option>Seleccione una unidad</option>
             </select>
-        
             <p>a</p>
-        
-            <select>
+            <select id="unidad2" class="fuente">
                 <option>Seleccione una unidad</option>
             </select>
     
             
         </div>    
-        <button>Convertir</button>
+        <button class="fuente">Convertir</button>
+
+    <input type="text" class="fuente" readonly placeholder="Resultado">
     </div>
-   
+   <script src="scripts.js"></script>
 </body>
 </html>

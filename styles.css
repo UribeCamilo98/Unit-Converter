@@ -4,11 +4,8 @@ body{
     align-items: center;
     padding: 10vh;
     margin: 0;
-    background-color: #EEEEEE;
-    color: #373A40;
-    font-family: "Young Serif", serif;
-    font-weight: 400;
-    font-style: normal;
+    background-color: #F8F3D9;
+    color: #504B38;
 }
 
 .contenedor{
@@ -21,6 +18,31 @@ cursor:pointer;
 
 .unidades{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+}
+
+input{
+    text-align: center;
+    color: #EBE5C2;
+    padding: 10px;
+}
+
+button{
+    text-align: center;
+    background-color: #504B38;
+    color:#F8F3D9;
+    border-radius: 10px;
+    margin:10px;
+    padding: 15px;
+}
+
+select{
+    padding: 15px;
+}
+
+.fuente{
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    font-style: normal;
 }
