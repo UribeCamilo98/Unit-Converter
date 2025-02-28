@@ -24,7 +24,7 @@ const factoresConversion={
 //Elementos para la conversion de unidades
 const cantidadInput= document.querySelector("input[type='number']");
 const convertirBtn = document.querySelector("button");
-const resultadoInput = document.querySelector("input[readonly]");
+const resultadoInput = document.querySelector(".resultado");
 
 //Obtenemos los elementos del DOM
 const categoriaSelect = document.getElementById("categoria");
@@ -57,14 +57,58 @@ function convertir() {
     const unidad1=unidad1Select.value;
     const unidad2=unidad2Select.value;
     const categoria= categoriaSelect.value;
-
+    
 // se verifica que los valores dados si sean validos
-    if(isNaN(cantidad)|| !unidad1 || !unidad2 || unidad1 == unidad2){
+    if(isNaN(cantidad)|| !unidad1 || !unidad2 || unidad1 === unidad2){
         resultadoInput.value= "Seleccione valores Validos";
         return;
     }
+    
+    //veriicacion de que la categoria existe en el objeto factoresConversion para las categorias longitud y peso
+    if(factoresConversion[categoria]&&factoresConversion[categoria][unidad1] && factoresConversion[categoria][unidad2]){
+        const factor = factoresConversion[categoria][unidad1][unidad2];
+         const resultado = cantidad*factor;
+        
+        resultadoInput.value=resultado + " " + [unidad2];
 
-    console.log(`Cantidad: ${cantidad}, Origen: ${unidad1}, Destino: ${unidad2}, Categoría: ${categoria}`);
+    }else if (categoria ==="temperatura"){
+
+        //conversiones de celsius
+        if(unidad1==="celsius" && unidad2==="fahrenheit"){
+            const cToF = (cantidad*(9/5))+32;
+            
+            resultadoInput.value=cToF + " "+ unidad2;
+            }
+            
+        if(unidad1==="celsius" && unidad2==="kelvin"){
+                const cToK = cantidad + 273.15;
+                resultadoInput.value=cToK + " " + unidad2;
+                }
+        //conversiones de fahrenheit  
+        if(unidad1==="fahrenheit" && unidad2==="celsius"){
+                    const fToC = (cantidad-32)*(5/9);
+
+                    resultadoInput.value=fToC + " " + unidad2;
+                    }
+        if(unidad1==="fahrenheit" && unidad2==="kelvin"){
+                        const fToK = ((cantidad-32)+(5/9))+273+15;
+    
+                        resultadoInput.value=fToK + " " + unidad2;
+                        }
+        //conversiones de Kelvin
+        if(unidad1==="kelvin" && unidad2==="celsius"){
+            const kToC = cantidad - 273.15;
+
+            resultadoInput.value=kToC + " " + unidad2;
+            }
+        if(unidad1==="kelvin" && unidad2==="fahrenheit"){
+                const kToF = ((cantidad - 273.15)*(9/5))+32;
+    
+                resultadoInput.value=kToF + " " + unidad2;
+                }   
+        }else{
+        resultadoInput.value = "Conversion No disponible";
+}
 }
 
 categoriaSelect.addEventListener("change", actualizarUnidades);
